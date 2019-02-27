@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MailHub</name>
+    </assembly>
+    <members>
+        <member name="T:MailHub.Core.Extensions.IApplicationBuilderExtensions">
+            <summary>
+            Represents a collection of extension methods for the <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> class
+            </summary>
+        </member>
+        <member name="M:MailHub.Core.Extensions.IApplicationBuilderExtensions.UseGeneratedDocumentation(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.String,System.String)">
+            <summary>
+            Configures and adds the middleware for using the generated online API documentation
+            </summary>
+            <param name="app">The Application Builder to add the middleware to</param>
+            <param name="documentTitle">The Title for the online documentation</param>
+            <param name="documentVersionName">The Version Name for the online documentation</param>
+            <returns>The updated <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> instance</returns>
+        </member>
+        <member name="T:MailHub.Core.Extensions.IServiceCollectionExtensions">
+            <summary>
+            Represents extension methods for the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> class
+            </summary>
+        </member>
+        <member name="M:MailHub.Core.Extensions.IServiceCollectionExtensions.AddGeneratedDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Configures and adds the services for generating the online API Documentation
+            </summary>
+            <param name="services">The Services Collection to add the DI Services to</param>
+            <param name="documentVersionName">The Version Name for the online documentation</param>
+            <param name="documentTitle">The Title for the online documentation</param>
+            <param name="hostingEnvironment">The <see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/> provides the fully qualified file path to the root of the application</param>
+            <returns>The updated <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> instance</returns>
+        </member>
+        <member name="T:MailHub.Email.Models.Configuration.EmailConfiguration">
+            <summary>
+            Represents the information for the <see cref="T:MailKit.Net.Smtp.SmtpClient"/> server and <see cref="T:MailKit.Net.Pop3.Pop3Client"/> server
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpServer">
+            <summary>
+            The target SMTP server domain name
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpPort">
+            <summary>
+            the target SMTP port number
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpUsername">
+            <summary>
+            The username for the target SMTP server
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpPassword">
+            <summary>
+            The password for the target SMTP server
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopServer">
+            <summary>
+            The target POP3 server domain name
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopPort">
+            <summary>
+            the target POP3 port number
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopUsername">
+            <summary>
+            The username for the target POP3 server
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopPassword">
+            <summary>
+            The password for the target POP3 server
+            </summary>
+        </member>
+        <member name="T:MailHub.Email.Models.Configuration.IEmailConfiguration">
+            <summary>
+            Represents the Interface for the <see cref="T:MailHub.Email.Models.Configuration.EmailConfiguration"/> class
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopPassword">
+            <summary>
+            The password for the target POP3 server
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopPort">
+            <summary>
+            the target POP3 port number
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopServer">
+            <summary>
+            The target POP3 server domain name
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopUsername">
+            <summary>
+            The username for the target POP3 server
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpPassword">
+            <summary>
+            The password for the target SMTP server
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpPort">
+            <summary>
+            the target SMTP port number
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpServer">
+            <summary>
+            The target SMTP server domain name
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpUsername">
+            <summary>
+            The username for the target SMTP server
+            </summary>
+        </member>
+        <member name="T:MailHub.Email.Models.EmailAddress">
+            <summary>
+            Represents the address information for an Email
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.EmailAddress.Name">
+            <summary>
+            The name of the address holder 
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.EmailAddress.Address">
+            <summary>
+            The address of an email
+            </summary>
+        </member>
+        <member name="T:MailHub.Email.Models.EmailMessage">
+            <summary>
+            Represents the information for the content of an email
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.EmailMessage.ToAddresses">
+            <summary>
+            The <see cref="T:MailHub.Email.Models.EmailAddress"/> to send the email to
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.EmailMessage.FromAddresses">
+            <summary>
+            The <see cref="T:MailHub.Email.Models.EmailAddress"/> that the email is being sent from
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.EmailMessage.Subject">
+            <summary>
+            The subject of the email
+            </summary>
+        </member>
+        <member name="P:MailHub.Email.Models.EmailMessage.Content">
+            <summary>
+            The message content of the email
+            </summary>
+        </member>
+        <member name="T:MailHub.Program">
+            <summary>
+            Represents the entry point of the program
+            </summary>
+        </member>
+        <member name="M:MailHub.Program.Main(System.String[])">
+            <summary>
+            The entry method for the application
+            </summary>
+            <param name="args">A collection of command line arguments used for optional configuration of the application</param>
+        </member>
+        <member name="M:MailHub.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Builds the Web Host that is used to run the site
+            </summary>
+            <param name="args">A collection of arguments used to optionaly configure the Web Host</param>
+            <returns>Returns a <see cref="T:Microsoft.AspNetCore.Hosting.IWebHostBuilder"/> configured to run the website</returns>
+        </member>
+        <member name="T:MailHub.Startup">
+            <summary>
+            Represents the custom configuration of the Dependency Injection Services and the HTTP Pipeline
+            </summary>
+        </member>
+        <member name="M:MailHub.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Creates a new <see cref="T:MailHub.Startup"/> instance
+            </summary>
+            <param name="configuration">An object for retrieving the application configuration values</param>
+            <param name="hostingEnvironment">The Hosting Environment information</param>
+        </member>
+        <member name="M:MailHub.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the Dependency Injection Services
+            </summary>
+            <param name="services">The Service Collection to add the DI Services to</param>
+        </member>
+        <member name="M:MailHub.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Configures the middleware used by the HTTP Request/Response pipeline
+            </summary>
+            <param name="app">The Application Builder to add the middleware to</param>
+            <param name="env">The Hosting Environment information</param>
+        </member>
+    </members>
+</doc>
