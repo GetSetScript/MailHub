@@ -25,36 +25,21 @@ namespace MailHub.Email.Services
 
         public async Task Send(EmailMessage emailMessage)
         {
-            throw new NotImplementedException();
-        }
-
-        private MimeMessage CreateEmailMessage(EmailMessage emailMessage)
-        {
             if (emailMessage == null)
             {
                 throw new ArgumentNullException("The EmailMessage class cannot be null");
             }
-
-            if (!emailMessage.FromAddresses.Any())
-            {
-                throw new ArgumentException("The EmailMessage class must contain at least one FromAddresses address");
-            }
-
-            if (string.IsNullOrWhiteSpace(emailMessage.FromAddresses[0].Name))
-            {
-                throw new ArgumentException("The EmailAddress property Name cannot be null, whitespace or empty");
-            }
-
-            if (string.IsNullOrWhiteSpace(emailMessage.FromAddresses[0].Address))
-            {
-                throw new ArgumentException("The EmailAddress property Address cannot be null, whitespace or empty");
-            }
-
+            
             if (string.IsNullOrWhiteSpace(emailMessage.Content))
             {
                 throw new ArgumentException("The EmailMessage property Content cannon be null, whitespace or empty");
             }
 
+            var message = CreateMimeMessage(emailMessage);
+        }
+
+        private MimeMessage CreateMimeMessage(EmailMessage emailMessage)
+        {
             var message = new MimeMessage();
 
             message.To.AddRange(emailMessage.ToAddresses.Select(m => new MailboxAddress(m.Name, m.Address)));

@@ -19,7 +19,6 @@ namespace MailHub.Email.Models
         /// <summary>
         /// The <see cref="EmailAddress"/> that the email is being sent from
         /// </summary>
-        [Required]
         public List<EmailAddress> FromAddresses { get; set; } = new List<EmailAddress>();
 
         /// <summary>
@@ -30,8 +29,17 @@ namespace MailHub.Email.Models
         /// <summary>
         /// The message content of the email
         /// </summary>
-        [Required]
-        [MinLength(50)]
         public string Content { get; set; }
+
+        /// <summary>
+        /// Creates a new Intance of the <see cref="EmailMessage"/> class
+        /// </summary>
+        /// <param name="toAddresses"></param>
+        /// <param name="fromAddresses"></param>
+        /// <param name="content"></param>
+        public EmailMessage(string content)
+        {
+            Content = content;
+        }
     }
 }

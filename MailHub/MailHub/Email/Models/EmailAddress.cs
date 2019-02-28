@@ -14,15 +14,20 @@ namespace MailHub.Email.Models
         /// <summary>
         /// The name of the address holder 
         /// </summary>
-        [Required]
-        [MinLength(1)]
         public string Name { get; set; }
 
         /// <summary>
         /// The address of an email
         /// </summary>
-        [Required]
-        [EmailAddress]
-        public string Address { get; set; }
+        public string Address { get; }
+
+        /// <summary>
+        /// Creates a new instance of the <see cref="EmailAddress"/> class
+        /// </summary>
+        /// <param name="address">The address of an email</param>
+        public EmailAddress(string address)
+        {
+            Address = address;
+        }
     }
 }

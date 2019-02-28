@@ -16,27 +16,21 @@ namespace MailHub.Email.Models.Configuration
         /// <summary>
         /// The target SMTP server domain name
         /// </summary>
-        [Required]
         public string SmtpServer { get; set; }
 
         /// <summary>
         /// the target SMTP port number
         /// </summary>
-        [Required]
-        [Range(2, 3)]
         public int SmtpPort { get; set; }
 
         /// <summary>
         /// The username for the target SMTP server
         /// </summary>
-        [Required]
-        [EmailAddress]
         public string SmtpUsername { get; set; }
 
         /// <summary>
         /// The password for the target SMTP server
         /// </summary>
-        [Required]
         public string SmtpPassword { get; set; }
 
         
