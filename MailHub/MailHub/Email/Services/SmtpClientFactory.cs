@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MailHub.Email
+namespace MailHub.Email.Services
 {
     /// <summary>
     /// Represents a factory for a <see cref="SmtpClient"/>

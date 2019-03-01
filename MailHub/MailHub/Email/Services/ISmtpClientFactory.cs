@@ -1,6 +1,6 @@
 ﻿using MailKit.Net.Smtp;
 
-namespace MailHub.Email
+namespace MailHub.Email.Services
 {
     /// <summary>
     /// Represents an interface for a SMTP client factory
