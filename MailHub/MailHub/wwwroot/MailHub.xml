@@ -33,6 +33,17 @@
             <param name="hostingEnvironment">The <see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/> provides the fully qualified file path to the root of the application</param>
             <returns>The updated <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> instance</returns>
         </member>
+        <member name="T:MailHub.Email.ISmtpClientFactory">
+            <summary>
+            Represents an interface for a <see cref="T:MailHub.Email.SmtpClientFactory"/>
+            </summary>
+        </member>
+        <member name="M:MailHub.Email.ISmtpClientFactory.Create">
+            <summary>
+            Creates an instance of a <see cref="T:MailKit.Net.Smtp.SmtpClient"/>
+            </summary>
+            <returns>A <see cref="T:MailKit.Net.Smtp.SmtpClient"/> instance</returns>
+        </member>
         <member name="T:MailHub.Email.Models.Configuration.EmailConfiguration">
             <summary>
             Represents the information for the <see cref="T:MailKit.Net.Smtp.SmtpClient"/> server and <see cref="T:MailKit.Net.Pop3.Pop3Client"/> server
@@ -123,34 +134,19 @@
             The username for the target SMTP server
             </summary>
         </member>
-        <member name="T:MailHub.Email.Models.EmailAddress">
-            <summary>
-            Represents the address information for an Email
-            </summary>
-        </member>
-        <member name="P:MailHub.Email.Models.EmailAddress.Name">
-            <summary>
-            The name of the address holder 
-            </summary>
-        </member>
-        <member name="P:MailHub.Email.Models.EmailAddress.Address">
-            <summary>
-            The address of an email
-            </summary>
-        </member>
         <member name="T:MailHub.Email.Models.EmailMessage">
             <summary>
-            Represents the information for the content of an email
+            Represents the content of an email
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.EmailMessage.ToAddresses">
+        <member name="P:MailHub.Email.Models.EmailMessage.ToAddress">
             <summary>
-            The <see cref="T:MailHub.Email.Models.EmailAddress"/> to send the email to
+            The email address to send to
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.EmailMessage.FromAddresses">
+        <member name="P:MailHub.Email.Models.EmailMessage.Content">
             <summary>
-            The <see cref="T:MailHub.Email.Models.EmailAddress"/> that the email is being sent from
+            The message content of the email
             </summary>
         </member>
         <member name="P:MailHub.Email.Models.EmailMessage.Subject">
@@ -158,10 +154,56 @@
             The subject of the email
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.EmailMessage.Content">
+        <member name="M:MailHub.Email.Models.EmailMessage.#ctor(System.String,System.String,System.String)">
             <summary>
-            The message content of the email
+            Creates a new Intance of the <see cref="T:MailHub.Email.Models.EmailMessage"/> class
             </summary>
+            <param name="toAddress">The email address to send to</param>
+            <param name="content">The message content of the email</param>
+            <param name="subject">The subject of the email</param>
+        </member>
+        <member name="T:MailHub.Email.Services.EmailService">
+            <summary>
+            Represents an service that manages email messages
+            </summary>
+        </member>
+        <member name="M:MailHub.Email.Services.EmailService.#ctor(MailHub.Email.Models.Configuration.IEmailConfiguration,Microsoft.Extensions.Logging.ILogger{MailHub.Email.Services.EmailService},MailHub.Email.ISmtpClientFactory)">
+            <summary>
+            Creates a new instance of the <see cref="T:MailHub.Email.Services.EmailService"/> class
+            </summary>
+            <param name="emailConfiguration">Used for accessing the SMPT and POP3 information</param>
+            <param name="logger">Used for logging</param>
+            <param name="smptClientFactory">Used for creating an instance of the <see cref="T:MailKit.Net.Smtp.SmtpClient"/></param>
+        </member>
+        <member name="M:MailHub.Email.Services.EmailService.Send(MailHub.Email.Models.EmailMessage)">
+            <summary>
+            Sends an email message
+            </summary>
+            <param name="emailMessage">The email message to be sent</param>
+            <returns>A Task for awaiting</returns>
+        </member>
+        <member name="T:MailHub.Email.Services.IEmailService">
+            <summary>
+            Represents the interface of an email service that manages email messages
+            </summary>
+        </member>
+        <member name="M:MailHub.Email.Services.IEmailService.Send(MailHub.Email.Models.EmailMessage)">
+            <summary>
+            Sends an email message
+            </summary>
+            <param name="emailMessage">The email message to be sent</param>
+            <returns>A Task for awaiting</returns>
+        </member>
+        <member name="T:MailHub.Email.SmtpClientFactory">
+            <summary>
+            Represents a factory for a <see cref="T:MailKit.Net.Smtp.SmtpClient"/>
+            </summary>
+        </member>
+        <member name="M:MailHub.Email.SmtpClientFactory.Create">
+            <summary>
+            Creates an instance of a <see cref="T:MailKit.Net.Smtp.SmtpClient"/>
+            </summary>
+            <returns>A <see cref="T:MailKit.Net.Smtp.SmtpClient"/></returns>
         </member>
         <member name="T:MailHub.Program">
             <summary>
