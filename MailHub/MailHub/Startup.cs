@@ -5,6 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using MailHub.Core.Extensions;
+using MailHub.Email;
+using MailHub.Email.Models.Configuration;
+using MailHub.Email.Services;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,7 +52,11 @@ namespace MailHub
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGeneratedDocumentation(DocumentationVersionNameV1, DocumentationTitle, _hostingEnvironment);
-            
+
+            services.AddSingleton<IEmailConfiguration>(_configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
+            services.AddTransient<ISmtpClientFactory, SmtpClientFactory>();
+            services.AddTransient<IEmailService, EmailService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
