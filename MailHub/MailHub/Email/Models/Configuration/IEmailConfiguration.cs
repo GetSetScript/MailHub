@@ -1,48 +1,28 @@
 ﻿namespace MailHub.Email.Models.Configuration
 {
     /// <summary>
-    /// Represents the Interface for the <see cref="EmailConfiguration"/> class
+    /// Represents an Interface for information for internet standared email transmission protocols
     /// </summary>
     public interface IEmailConfiguration
     {
         /// <summary>
-        /// The password for the target POP3 server
+        /// The password for the target server
         /// </summary>
-        string PopPassword { get; set; }
+        string Password { get; set; }
 
         /// <summary>
-        /// the target POP3 port number
+        /// the port number of the target server
         /// </summary>
-        int PopPort { get; set; }
+        int Port { get; set; }
 
         /// <summary>
-        /// The target POP3 server domain name
+        /// The domain name of the target server
         /// </summary>
-        string PopServer { get; set; }
+        string Server { get; set; }
 
         /// <summary>
-        /// The username for the target POP3 server
+        /// The username for the target server
         /// </summary>
-        string PopUsername { get; set; }
-
-        /// <summary>
-        /// The password for the target SMTP server
-        /// </summary>
-        string SmtpPassword { get; set; }
-
-        /// <summary>
-        /// the target SMTP port number
-        /// </summary>
-        int SmtpPort { get; set; }
-
-        /// <summary>
-        /// The target SMTP server domain name
-        /// </summary>
-        string SmtpServer { get; set; }
-
-        /// <summary>
-        /// The username for the target SMTP server
-        /// </summary>
-        string SmtpUsername { get; set; }
+        string Username { get; set; }
     }
 }
