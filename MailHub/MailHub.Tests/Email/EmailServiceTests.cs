@@ -14,7 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace MailHub.Tests.Mail
+namespace MailHub.Tests.Email
 {
     public class EmailServiceTests
     {
@@ -34,10 +34,10 @@ namespace MailHub.Tests.Mail
 
                 _smtpClientFactoryMock.Setup(s => s.Create()).Returns(_smtpClientMock.Object);
 
-                _emailConfigurationMock.SetupGet(c => c.SmtpServer).Returns("smtp.mail.com");
-                _emailConfigurationMock.SetupGet(c => c.SmtpPort).Returns(465);
-                _emailConfigurationMock.SetupGet(c => c.SmtpUsername).Returns("test@email.com");
-                _emailConfigurationMock.SetupGet(c => c.SmtpPassword).Returns("password123");
+                _emailConfigurationMock.SetupGet(c => c.Server).Returns("smtp.mail.com");
+                _emailConfigurationMock.SetupGet(c => c.Port).Returns(465);
+                _emailConfigurationMock.SetupGet(c => c.Username).Returns("test@email.com");
+                _emailConfigurationMock.SetupGet(c => c.Password).Returns("password123");
 
                 _emailService = new EmailService(_emailConfigurationMock.Object, _loggerMock.Object, _smtpClientFactoryMock.Object);
             }
@@ -56,6 +56,6 @@ namespace MailHub.Tests.Mail
                 var exception = await Assert.ThrowsAsync<ArgumentNullException>(async () => await _emailService.Send(null));
                 Assert.Equal("emailmessage", exception.ParamName.ToLower());
             }
-        }        
+        }
     }
 }

@@ -33,94 +33,93 @@
             <param name="hostingEnvironment">The <see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/> provides the fully qualified file path to the root of the application</param>
             <returns>The updated <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> instance</returns>
         </member>
+        <member name="T:MailHub.Email.EmailController">
+            <summary>
+            Represents a controller for emails
+            </summary>
+        </member>
+        <member name="M:MailHub.Email.EmailController.#ctor(MailHub.Email.Services.IEmailService,Microsoft.Extensions.Logging.ILogger{MailHub.Email.EmailController})">
+            <summary>
+            Creates a new instance of the <see cref="T:MailHub.Email.EmailController"/> class
+            </summary>
+            <param name="emailService">The email service that will be used to send emails</param>
+            <param name="logger">Used for logging</param>
+        </member>
+        <member name="M:MailHub.Email.EmailController.SendContactFormEmail(MailHub.Email.Models.DTO.ContactFormDto)">
+            <summary>
+            
+            </summary>
+            <param name="contactFormDto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MailHub.Email.Models.Configuration.EmailConfiguration">
             <summary>
-            Represents the information for the <see cref="T:MailKit.Net.Smtp.SmtpClient"/> server and <see cref="T:MailKit.Net.Pop3.Pop3Client"/> server
+            Represents information for internet standared email transmission protocols
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpServer">
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.Server">
             <summary>
-            The target SMTP server domain name
+            The domain name of the target server
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpPort">
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.Port">
             <summary>
-            the target SMTP port number
+            the port number of the target server
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpUsername">
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.Username">
             <summary>
-            The username for the target SMTP server
+            The username for the target server
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.SmtpPassword">
+        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.Password">
             <summary>
-            The password for the target SMTP server
-            </summary>
-        </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopServer">
-            <summary>
-            The target POP3 server domain name
-            </summary>
-        </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopPort">
-            <summary>
-            the target POP3 port number
-            </summary>
-        </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopUsername">
-            <summary>
-            The username for the target POP3 server
-            </summary>
-        </member>
-        <member name="P:MailHub.Email.Models.Configuration.EmailConfiguration.PopPassword">
-            <summary>
-            The password for the target POP3 server
+            The password for the target server
             </summary>
         </member>
         <member name="T:MailHub.Email.Models.Configuration.IEmailConfiguration">
             <summary>
-            Represents the Interface for the <see cref="T:MailHub.Email.Models.Configuration.EmailConfiguration"/> class
+            Represents an Interface for information for internet standared email transmission protocols
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopPassword">
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.Password">
             <summary>
-            The password for the target POP3 server
+            The password for the target server
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopPort">
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.Port">
             <summary>
-            the target POP3 port number
+            the port number of the target server
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopServer">
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.Server">
             <summary>
-            The target POP3 server domain name
+            The domain name of the target server
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.PopUsername">
+        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.Username">
             <summary>
-            The username for the target POP3 server
+            The username for the target server
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpPassword">
+        <member name="T:MailHub.Email.Models.DTO.ContactFormDto">
             <summary>
-            The password for the target SMTP server
+            Represents contact form information
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpPort">
+        <member name="P:MailHub.Email.Models.DTO.ContactFormDto.Name">
             <summary>
-            the target SMTP port number
+            The name field from the contact form
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpServer">
+        <member name="P:MailHub.Email.Models.DTO.ContactFormDto.Email">
             <summary>
-            The target SMTP server domain name
+            The email address from the contact form
             </summary>
         </member>
-        <member name="P:MailHub.Email.Models.Configuration.IEmailConfiguration.SmtpUsername">
+        <member name="P:MailHub.Email.Models.DTO.ContactFormDto.Message">
             <summary>
-            The username for the target SMTP server
+            The message from the contact form
             </summary>
         </member>
         <member name="T:MailHub.Email.Models.EmailMessage">

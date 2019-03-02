@@ -1,6 +1,7 @@
 ﻿using MailHub.Email.Models;
 using MailHub.Email.Models.Configuration;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.Extensions.Logging;
 using MimeKit;
 using MimeKit.Text;
@@ -54,11 +55,13 @@ namespace MailHub.Email.Services
             
             using (var emailClient = _smptClientFactory.Create())
             {
-                await emailClient.ConnectAsync(_emailConfiguration.SmtpServer, _emailConfiguration.SmtpPort, useSSL);
+                emailClient.ServerCertificateValidationCallback = (s, c, ch, ssl) => true; //Need to implement better validation
+
+                await emailClient.ConnectAsync(_emailConfiguration.Server, _emailConfiguration.Port, useSSL);
 
                 emailClient.AuthenticationMechanisms.Remove(oAuth2AuthenticationType);
 
-                await emailClient.AuthenticateAsync(_emailConfiguration.SmtpUsername, _emailConfiguration.SmtpPassword);
+                await emailClient.AuthenticateAsync(_emailConfiguration.Username, _emailConfiguration.Password);
 
                 await emailClient.SendAsync(message);
 
