@@ -47,10 +47,10 @@
         </member>
         <member name="M:MailHub.Email.EmailController.SendContactFormEmail(MailHub.Email.Models.DTO.ContactFormDto)">
             <summary>
-            
+            Sends a contact form email
             </summary>
-            <param name="contactFormDto"></param>
-            <returns></returns>
+            <param name="contactFormDto">A data transfer object used to bind incoming data from the body of the request</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> task</returns>
         </member>
         <member name="T:MailHub.Email.Models.Configuration.EmailConfiguration">
             <summary>

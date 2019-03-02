@@ -35,10 +35,10 @@ namespace MailHub.Email
         }
 
         /// <summary>
-        /// Sends a contact form email
+        /// Sends an email for a Contact Form
         /// </summary>
-        /// <param name="contactFormDto">A data transfer object used to bind incoming data from the body of the request</param>
-        /// <returns>An <see cref="IActionResult"/> task</returns>
+        /// <param name="contactFormDto">A Dto representing the information from a Contact Form</param>
+        /// <returns>204 when successful and 500 when a failure occurs</returns>
         [HttpPost("ContactForm")]
         [SwaggerResponse(204, "Returns 204 No Content when the Email has been successfully sent")]
         [SwaggerResponse(500, "Returns a 500 Internal Server Error if the Email failed to send")]
