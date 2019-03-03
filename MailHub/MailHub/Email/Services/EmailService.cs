@@ -55,7 +55,7 @@ namespace MailHub.Email.Services
             
             using (var emailClient = _smptClientFactory.Create())
             {
-                emailClient.ServerCertificateValidationCallback = (s, c, ch, ssl) => true; //Need to implement better validation
+                //emailClient.ServerCertificateValidationCallback = (s, c, ch, ssl) => true; //Need to implement better validation
 
                 await emailClient.ConnectAsync(_emailConfiguration.Server, _emailConfiguration.Port, useSSL);
 
