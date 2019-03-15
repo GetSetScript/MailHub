@@ -18,6 +18,8 @@ namespace MailHub
         private const string DocumentationTitle = "MailHub API Documentation";
         private const string DocumentationVersionNameV1 = "v1";
 
+        private readonly string AllowedSpecificOrigins = "_allowedSpecificOrigins";
+
         private readonly IConfiguration _configuration;
         private readonly IHostingEnvironment _hostingEnvironment;
 
@@ -46,6 +48,17 @@ namespace MailHub
             services.AddTransient<ISmtpClientFactory, SmtpClientFactory>();
             services.AddTransient<IEmailService, EmailService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(AllowedSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://getsetscript.com")
+                                       .AllowAnyHeader()
+                                       .AllowAnyMethod();
+                });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -68,7 +81,8 @@ namespace MailHub
 
             app.UseGeneratedDocumentation(DocumentationTitle, DocumentationVersionNameV1);
 
-            app.UseHttpsRedirection();
+            app.UseCors(AllowedSpecificOrigins);
+            
             app.UseMvc();
         }
     }
