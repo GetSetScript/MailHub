@@ -53,7 +53,7 @@ namespace MailHub
                 options.AddPolicy(AllowedSpecificOrigins,
                 builder =>
                 {
-                    builder.WithOrigins("http://getsetscript.com")
+                    builder.WithOrigins("http://getsetscript.com", "http://www.getsetscript.com")
                                        .AllowAnyHeader()
                                        .AllowAnyMethod();
                 });
